@@ -1,0 +1,54 @@
+Tandem Backend Coding Exercise
+The purpose of this exercise is to provide Tandem with insights into the candidate’s 
+familiarity with coding a .net core API service. The candidate is welcome to cap their eAort 
+to 4 hours and if the exercise is not complete by that point, we will evaluate the partially 
+complete eAort. If the candidate wishes to spend more time to complete the exercise, that 
+is also OK.
+API Service Description
+The API service should provide restful endpoints to create and get a user entity.
+Post Entity Schema
+{
+“firstName”: “Matthew”,
+“middleName”: “Decker”,
+“lastName”: “Lund”,
+“phoneNumber”: “555-555-5555”,
+“emailAddress”: “matt@awesomedomain.com”
+}
+Get notes
+The GET endpoint should allow for retrieval by email address. The GET endpoint does not 
+need to allow for retrieval by any other properties. Though we asked for the create endpoint 
+to take first, middle, and last names separately; we’d like the GET endpoint to just-in-time 
+convert the name into a single field like this:
+{
+“userId”: “54c4e684-0a6a-449d-b445-61ddd12Ad3d”,
+“name”: “Matthew Decker Lund”,
+“phoneNumber”: “555-555-5555”,
+“emailAddress”: “matt@awesomedomain.com”
+}
+Also note that I’m assuming the userId is generated as part of the POST operation.
+Response codes
+The candidate should brainstorm and code appropriate HTTP response codes for non￾success.
+Data Store
+The data store is at the candidate discretion 
+Integration Tests
+The solution should include an integration tests project with a reasonable number of tests 
+to exercise the endpoints and prove their correctness, including some scenarios where 
+non-success responses are expected. The candidate is welcome to provide a unit test 
+project though the integration tests are what we’ll focus on. For the integration tests, 
+please make actual HTTP calls from your tests into your service.
+How to submit the code
+Please host the code in a free code repo like GitHub make it publicly accessible, and 
+provide a link to the
+resulting repo.
+Bonus Points
+The following are not mandatory. Feel free to do these for “bonus points”.
+- Dockerize the solution
+- Domain Driven Design
+- Swagger documentation of the endpoints
+- Provide an endpoint to mutate/modify the user record
+- Commit frequently so we see the candidate’s thought process
+- Consider using some of our favorite libraries:
+Dependency Injection Container Built-in Microsoft DI container
+Mediator Pattern MediatR
+Logging Candidate’s discretion
+Validation FluentValidation
