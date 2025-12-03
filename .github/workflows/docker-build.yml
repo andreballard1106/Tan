@@ -24,13 +24,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore Tandem.sln
 
       - name: Build solution
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build Tandem.sln --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test --configuration Release --no-build --verbosity normal
+        run: dotnet test Tandem.sln --configuration Release --no-build --verbosity normal
 
   build-and-push:
     needs: test
